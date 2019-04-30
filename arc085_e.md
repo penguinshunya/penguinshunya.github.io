@@ -130,7 +130,7 @@ int main() {
   }
   for (int i = 1; i <= n; i++) {
     for (int j = i + i; j <= n; j += i) {
-      f.add(i, j, numeric_limits<i64>::max());
+      f.add(i, j, numeric_limits<long long>::max());
     }
   }
   cout << sum - f.max_flow() << endl;
