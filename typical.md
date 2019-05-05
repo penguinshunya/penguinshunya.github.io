@@ -12,4 +12,6 @@
   </dd>
   <dt>modの上限</dt>
   <dd>N mod Kは必ずK未満になる</dd>
+  <dt>modの不変性</dt>
+  <dd>N &lt; Kのとき、N mod K = N</dd>
 </dl>
