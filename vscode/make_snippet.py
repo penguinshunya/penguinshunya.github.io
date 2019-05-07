@@ -3,8 +3,6 @@ import json
 import os
 import re
 
-result = {}
-
 def make(prefix, filename):
     data = {}
     data["prefix"] = prefix
@@ -13,6 +11,8 @@ def make(prefix, filename):
         s = re.sub("\n", "", s)
         data["body"].append(s)
     return data
+
+result = {}
 
 with open("./template.cpp") as f:
     prefix = "cpt"
