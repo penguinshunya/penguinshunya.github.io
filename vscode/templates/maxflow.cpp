@@ -1,5 +1,5 @@
 template<class T>
-struct Flow {
+struct MaxFlow {
   struct Edge {
     int to;
     T cap;
@@ -14,20 +14,16 @@ struct Flow {
     g = vector<vector<Edge>>(n);
   }
 
-  void add(int from, int to, T cap) {
+  void add_edge(int from, int to, T cap) {
     g[from].push_back({ to, cap, (int) g[to].size() });
     g[to].push_back({ from, 0, (int) g[from].size() - 1 });
   }
 
   T dfs(int v, T f) {
-    if (v == t) {
-      return f;
-    }
+    if (v == t) return f;
     used[v] = true;
     for (auto &e : g[v]) {
-      if (used[e.to] || e.cap <= 0) {
-        continue;
-      }
+      if (used[e.to] || e.cap <= 0) continue;
       T d = dfs(e.to, min(f, e.cap));
       if (d > 0) {
         e.cap -= d;
@@ -43,9 +39,7 @@ struct Flow {
     while (true) {
       used = vector<bool>(n);
       T f = dfs(s, numeric_limits<T>::max());
-      if (f == 0) {
-        break;
-      }
+      if (f == 0) break;
       sum += f;
     }
     return sum;
