@@ -5,15 +5,22 @@ import re
 
 result = {}
 
-for file in glob.glob("./templates/*.cpp"):
+def make(prefix, filename):
     data = {}
-    prefix = os.path.basename(file).split(".")[0]
     data["prefix"] = prefix
     data["body"] = []
-    for s in open(file):
+    for s in open(filename):
         s = re.sub("\n", "", s)
         data["body"].append(s)
-    result[prefix] = data
+    return data
+
+with open("./template.cpp") as f:
+    prefix = "cpt"
+    result[prefix] = make(prefix, "./template.cpp")
+
+for file in glob.glob("./templates/*.cpp"):
+    prefix = os.path.basename(file).split(".")[0]
+    result[prefix] = make(prefix, file)
 
 with open("./cpp.json", "w") as f:
     f.write(json.dumps(result, indent=2))
