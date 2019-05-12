@@ -28,8 +28,8 @@ inline i64 lcm(i64 a, i64 b) { return a / gcd(a, b) * b; }
 void solve(); int main() { ios::sync_with_stdio(0); cin.tie(0); cout << fixed << setprecision(16); solve(); return 0; }
 template<typename T> class pqasc : public priority_queue<T, vector<T>, greater<T>> {};
 template<typename T> class pqdesc : public priority_queue<T, vector<T>, less<T>> {};
-template<typename T> inline void amax(T &x, T y) { if (x >= y) x = y; }
-template<typename T> inline void amin(T &x, T y) { if (x <= y) x = y; }
+template<typename T> inline void amax(T &x, T y) { if (x < y) x = y; }
+template<typename T> inline void amin(T &x, T y) { if (x > y) x = y; }
 template<typename T> inline T power(T x, i64 n) { T r = 1; while (n > 0) { if (n & 1) r *= x; x *= x; n >>= 1; } return r; }
 template<typename T> istream& operator>>(istream &is, vector<T> &v) { for (auto &x : v) is >> x; return is; }
 template<typename T> ostream& operator<<(ostream &os, const vector<T> &v) { rep(i, v.size()) { if (i) os << ' '; os << v[i]; } return os; }
