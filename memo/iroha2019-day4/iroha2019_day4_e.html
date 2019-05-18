@@ -23,6 +23,10 @@ li.L5, li.L6, li.L7, li.L8 {
 }
 .prettyprint {
   overflow: scroll;
+  background-color: white;
+}
+.linenums {
+  margin-left: 10px;
 }
 </style>
 <style>
@@ -133,7 +137,7 @@ dp[i + 1][j + k] \mathrel{+}= dp[i][j] \times _{N-j}C_k \times 2^{j-1} &(otherwi
 <p>$dp[0][0] = 1$、$dp[i][j] = 0 (i \neq 0 \lor j \neq 0)$を初期値としてDPを行ったあと、$\sum_{i = 0}^{N} dp[D][i]$が答えになります。事前に$0 \le n, r \le N$の範囲の$2^n$と$_nC_r$を計算しておくことで、各遷移の計算量が$O(1)$となり、全体で$O(N^2\log K)$の計算量となるため間に合います。</p>
 <h2>提出コード</h2>
 <code>ModInt</code>の定義は省略しています。<a target="_blank" href="https://atcoder.jp/contests/iroha2019-day4/submissions/5440144">実際に提出したコード</a>
-<pre class="prettyprint linenums lang-cpp">
+<pre class="prettyprint linenums:1 lang-cpp">
 #include &lt;bits/stdc++.h&gt;
 
 using namespace std;
