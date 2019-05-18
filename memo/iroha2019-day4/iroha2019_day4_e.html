@@ -29,7 +29,7 @@ pre, code {
   border: 1px solid black;
   border-radius: 1em;
 }
-.tex-block {
+.wrapping {
   overflow: scroll;
 }
 #container {
@@ -75,33 +75,35 @@ pre, code {
 <p>つまり、$A_i$の2進数表記での各桁に注目し、1が偶数個になるような数列$A$が何通りあるかを求めればよいです。そこで次のDPを考えます。</p>
 <div class="block">$dp[i][j]$ := (上位から$i$ビット目までを見たときに、$K$未満と確定した要素の数が$j$個のときの$A$の通り数)</div>
 <p>たとえば以下の表は、$N = 5$、$K = 54$（二進数表記で$110110$）のときの、$dp[3][3]$という状態を表しています。</p>
+<div class="wrapping">
 <table id="table" border="1">
   <tr>
-    <th>$K$</th><th>$A_1$</th><th>$A_2$</th><th>$A_3$</th><th>$A_4$</th><th>$A_5$</th>
+    <th>$K$</th><th>$A_1$</th><th>$A_2$</th><th>$A_3$</th><th>$A_4$</th><th>$A_5$</th><th>$A_6$</th><th>$A_7$</th><th>$A_8$</th>
   </tr>
   <tr>
-    <td>1</td><td>1</td><td>0</td><td class="same">1</td><td>1</td><td class="same">1</td>
+    <td>1</td><td>1</td><td>0</td><td class="same">1</td><td>1</td><td class="same">1</td><td>0</td><td>1</td><td class="same">1</td>
   </tr>
   <tr>
-    <td>1</td><td>0</td><td>1</td><td class="same">1</td><td>0</td><td class="same">1</td>
+    <td>1</td><td>0</td><td>1</td><td class="same">1</td><td>0</td><td class="same">1</td><td>0</td><td>0</td><td class="same">1</td>
   </tr>
   <tr>
-    <td>0</td><td>1</td><td>1</td><td class="same">0</td><td>0</td><td class="same">0</td>
+    <td>0</td><td>1</td><td>1</td><td class="same">0</td><td>0</td><td class="same">0</td><td>0</td><td>1</td><td class="same">0</td>
   </tr>
   <tr>
-    <td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    <td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
   </tr>
   <tr>
-    <td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    <td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
   </tr>
   <tr>
-    <td>0</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+    <td>0</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
   </tr>
 </table>
+</div>
 <p>$dp[i][j]$が既に求まっているものとして遷移を考えます。ここで、$K$の2進数表記での桁数を$D$とおくことにします。</p>
 <h3>1. $f(K, D - i) = 0$のとき</h3>
 <p>$N - j$個の要素については、$K$を超えてはいけないので$0$を選ぶ必要があり、$1$通りです。残りの$j$個の要素については、$0$と$1$のどちらを選択することも可能ですが、$1$の個数は偶数でなければならないため$2^{j-1}$通りです（ただし、$j=0$のときは$1$通りです）。ということで遷移は以下です。</p>
-<div class="tex-block">
+<div class="wrapping">
 \begin{alignat*}{1}
 \left\{
 \begin{array}{ll}
@@ -114,11 +116,11 @@ dp[i + 1][j] \mathrel{+}= dp[i][j] &(j = 0)
 <h3>2. $f(K, D - i) = 1$のとき</h3>
 <p>$j$個の要素については、$N - j$が奇数の場合は奇数個の$1$を、偶数の場合は偶数個の$1$を選ぶことになり、どちらも$2^{j-1}$通りです。</p>
 <p>$N-j$個の要素については、$0$と$1$のどちらを選択することも可能です。$0$を選択する個数を$k$としたとき、$K$未満に確定する要素が$k$個増えるため、遷移先は$dp[i + 1][j + k]$になります。$N-j$個から$k$個の$0$を選ぶ方法は$_{N-j}C_k$通りあるため、最終的には次のような遷移になります。</p>
-<div class="tex-block">
+<div class="wrapping">
 $$dp[i + 1][j + k] \mathrel{+}= dp[i][j] \times 2^{j-1} \times _{N-j}C_k$$
 </div>
 <p>ここで一つ注意すべき点があり、$j = 0$かつ$N-k$が奇数のときは、$\sum_{l=1}^{N} f(A_l, D - i)$が必ず奇数となるため0通りです。</p>
-<div class="tex-block">
+<div class="wrapping">
 \begin{alignat*}{1}
 \left\{
 \begin{array}{ll}
