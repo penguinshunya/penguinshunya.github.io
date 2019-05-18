@@ -6,7 +6,13 @@
 <title></title>
 <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/nord.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+<script>
+hljs.initHighlightingOnLoad();
+hljs.initLineNumbersOnLoad();
+</script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
@@ -16,6 +22,34 @@
   });
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<style>
+.hljs {
+  padding: 0;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+/* for block of numbers */
+.hljs-ln-numbers {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  text-align: right;
+  color: #ccc;
+  border-right: 1px solid #CCC;
+  vertical-align: top;
+  padding-right: 5px;
+
+  /* your custom style here */
+}
+.hljs-ln td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+</style>
 <style>
 body {
   font-family: 'Noto Serif JP', serif;
@@ -48,16 +82,6 @@ pre, code {
 }
 #table .same {
   background-color: #dcd6d9;
-}
-.prettyprint {
-  background-color: white;
-  overflow: scroll;
-}
-.linenums {
-  margin: auto 0.5em;
-}
-.linenums li {
-  list-style-type: decimal;
 }
 </style>
 </Head>
@@ -134,8 +158,7 @@ dp[i + 1][j + k] \mathrel{+}= dp[i][j] \times _{N-j}C_k \times 2^{j-1} &(otherwi
 <p>$dp[0][0] = 1$、$dp[i][j] = 0 (i \neq 0 \lor j \neq 0)$を初期値としてDPを行ったあと、$\sum_{i = 0}^{N} dp[D][i]$が答えになります。事前に$0 \le n, r \le N$の範囲の$2^n$と$_nC_r$を計算しておくことで、各遷移の計算量が$O(1)$となり、全体で$O(N^2\log K)$の計算量となるため間に合います。</p>
 <h2>提出コード</h2>
 <code>ModInt</code>の定義は省略しています。<a target="_blank" href="https://atcoder.jp/contests/iroha2019-day4/submissions/5440144">実際に提出したコード</a>
-<pre class="prettyprint linenums:1">
-#include &lt;bits/stdc++.h&gt;
+<pre><code>#include &lt;bits/stdc++.h&gt;
 
 using namespace std;
 using mint = ModInt&lt;1000000007&gt;;
@@ -201,7 +224,7 @@ int main() {
   cout &lt;&lt; ans &lt;&lt; endl;
   return 0;
 }
-</pre>
+</code></pre>
 </div>
 </body>
 </html>
