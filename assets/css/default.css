@@ -1,0 +1,53 @@
+body {
+  font-family: 'Noto Serif JP', serif;
+  background-color: #F2F4F7;
+  line-height: 1.8em;
+}
+pre, code {
+  font-family: 'Source Code Pro', monospace;
+  line-height: 1.4em;
+}
+h1 {
+  padding-bottom: 0.5em;
+  border-bottom: solid 3px black;
+}
+a {
+  color: #0000D0;
+  text-decoration-line: none;
+}
+.block {
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 1em;
+}
+.wrapping {
+  overflow: scroll;
+}
+#container {
+  margin: 0 auto;
+  max-width: 840px;
+}
+#table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+#table th {
+  padding: 0 1em;
+}
+#table td {
+  text-align: center;
+}
+#table .same {
+  background-color: #dcd6d9;
+}
+li.L0, li.L1, li.L2, li.L3,
+li.L5, li.L6, li.L7, li.L8 {
+  list-style-type: decimal !important;
+}
+.prettyprint {
+  overflow: scroll;
+  background-color: white;
+}
+.linenums {
+  margin-left: 10px;
+}
