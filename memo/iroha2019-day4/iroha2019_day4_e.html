@@ -37,6 +37,10 @@ body {
 pre, code {
   font-family: 'Source Code Pro', monospace;
 }
+h1 {
+  padding-bottom: 3px;
+  border-bottom: solid 3px black;
+}
 .block {
   padding: 1em;
   border: 1px solid black;
@@ -66,11 +70,11 @@ pre, code {
 </Head>
 <body>
 <div id="container">
-<h1>いろはちゃんコンテスト Day4 E - 芽生え</h1>
+<h1>いろはちゃんコンテスト Day4 E - 芽生え（700点）</h1>
 <a target="_blank" href="https://atcoder.jp/contests/iroha2019-day4/tasks/iroha2019_day4_e">https://atcoder.jp/contests/iroha2019-day4/tasks/iroha2019_day4_e</a>
 <p>このゲームはNimそのものであるため、次の問題に言い換えられます。</p>
 <div class="block">
-  $0 \le A_i \le K (1 \le i \le N)$、$A_1 \oplus A_2 \oplus \ldots \oplus A_N = 0$を満たさない数列$A_1, A_2, \ldots A_N$は何通りあるでしょうか。答えは非常に大きくなる可能性があるため、$10^9 + 7$で割った余りを答えてください。
+  $A_1 \oplus A_2 \oplus \ldots \oplus A_N = 0$を満たさない数列$A_1, A_2, \ldots A_N$は何通りあるでしょうか。答えは非常に大きくなる可能性があるため、$10^9 + 7$で割った余りを答えてください。
 </div>
 <p>補集合である「$A_1 \oplus A_2 \oplus \ldots \oplus A_N = 0$を満たす数列」を数えることを考えます。</p>
 <p>ここで非負整数$x$の$i$ビット目を$f(x, i)$とすると、$A_1 \oplus A_2 \oplus \ldots \oplus A_N = 0$という条件は、次のように言い換えられます。</p>
@@ -90,7 +94,7 @@ pre, code {
     <td>1</td><td>0</td><td>1</td><td class="same">1</td><td>0</td><td class="same">1</td><td>0</td><td>0</td><td class="same">1</td>
   </tr>
   <tr>
-    <td>0</td><td>1</td><td>1</td><td class="same">0</td><td>0</td><td class="same">0</td><td>0</td><td>1</td><td class="same">0</td>
+    <td>0</td><td>1</td><td>1</td><td class="same">0</td><td>0</td><td class="same">0</td><td>1</td><td>1</td><td class="same">0</td>
   </tr>
   <tr>
     <td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
