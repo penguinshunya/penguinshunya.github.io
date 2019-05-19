@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<Head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title></title>
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\$','\$']],
+      processEscapes: true
+    }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<style>
+li.L0, li.L1, li.L2, li.L3,
+li.L5, li.L6, li.L7, li.L8 {
+  list-style-type: decimal !important;
+}
+.prettyprint {
+  overflow: scroll;
+  background-color: white;
+}
+.linenums {
+  margin-left: 10px;
+}
+</style>
+<style>
+body {
+  font-family: 'Noto Serif JP', serif;
+  background-color: #F2F4F7;
+  line-height: 1.6em;
+}
+pre, code {
+  font-family: 'Source Code Pro', monospace;
+}
+h1 {
+  padding-bottom: 3px;
+  border-bottom: solid 3px black;
+}
+.block {
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 1em;
+}
+.wrapping {
+  overflow: scroll;
+}
+#container {
+  margin: 0 auto;
+  max-width: 840px;
+}
+#table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+#table th {
+  padding: 0 1em;
+}
+#table td {
+  text-align: center;
+}
+#table .same {
+  background-color: #dcd6d9;
+}
+</style>
+</Head>
+<body>
+<div id="container">
+<h1>yukicoder No.185 和風（★）</h1>
+<a target="_blank" href="https://yukicoder.me/problems/no/185">https://yukicoder.me/problems/no/185</a>
+<p>□を$x$とおくと、$x = Y_1 - X_1 = Y_2 - X_2 = \ldots = Y_N - X_N$と表せます。それぞれの$(X_k, Y_k)$の組について$Y_k - X_k$を求め、すべてが同じでかつ正整数であればその数を出力し、そうでなければ$-1$を出力します。</p>
+<h2>提出コード</h2>
+<pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+  
+int main() {
+  int N, X, Y;
+  cin &gt;&gt; N &gt;&gt; X &gt;&gt; Y;
+  int x = Y - X;
+  if (x &lt;= 0) {
+    cout &lt;&lt; -1 &lt;&lt; endl;
+    return 0;
+  }
+  for (int i = 1; i &lt; N; i++) {
+    cin &gt;&gt; X &gt;&gt; Y;
+    if (x != Y - X) {
+      cout &lt;&lt; -1 &lt;&lt; endl;
+      return 0;
+    }
+  }
+  cout &lt;&lt; x &lt;&lt; endl;
+  return 0;
+}
+</pre>
+</div>
+</body>
+</html>
