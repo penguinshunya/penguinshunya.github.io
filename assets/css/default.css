@@ -8,8 +8,9 @@ pre, code {
   line-height: 1.4em;
 }
 h1 {
-  padding-bottom: 0.5em;
+  padding-bottom: 0.3em;
   border-bottom: solid 3px black;
+  line-height: 1.2em;
 }
 a {
   color: #0000D0;
@@ -35,6 +36,7 @@ a {
   padding: 0 1em;
 }
 #table td {
+  padding: 0 1em;
   text-align: center;
 }
 #table .same {
