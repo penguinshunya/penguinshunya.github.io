@@ -1,0 +1,33 @@
+---
+layout: default
+title: 実装テクニック一覧 - ぺんぎんノート
+---
+<style>
+details {
+  margin: 0.3em 0;
+}
+summary {
+  margin-bottom: 0.3em;
+}
+</style>
+<details>
+  <summary>
+    setのループで要素を削除するときの実装
+  </summary>
+  <div class="block">
+    setのループを範囲for文で書き、その中でsetの要素を削除すると、よくわからない挙動を見せます。以下のように書くことで正しく動作します。
+<pre class="prettyprint linenums:1 lang-cpp">
+set&lt;int&gt; s = {1, 2, 3};
+
+auto it = s.begin();
+while (it != s.end()) {
+  if (*it >= 3) break;
+  s.erase(it++);
+}
+
+for (auto v : s) {
+  cout &lt;&lt; v &lt;&lt; '\n'; //=&gt; 3
+}
+</pre>
+  </div>
+</details>
