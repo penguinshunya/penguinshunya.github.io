@@ -16,6 +16,9 @@ a {
   color: #0000D0;
   text-decoration-line: none;
 }
+details {
+  cursor: pointer;
+}
 .block {
   padding: 1em;
   border: 1px solid black;
