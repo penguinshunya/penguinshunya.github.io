@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <Head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <base target="_blank">
+    <title>{{ page.title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP|Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="/assets/css/default.css" rel="stylesheet">
+    <link href="/assets/css/solutions.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\$','\$']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG' async></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1>{{ page.title }}</h1>
+      <div class="block" style="margin-bottom: 1em;">
+        <span data-point="300">★</span>：300点<br>
+        <span data-point="400">★</span>：400点<br>
+        <span data-point="500">★</span>：500〜600点<br>
+        <span data-point="700">★</span>：700〜800点<br>
+      </div>
+      <ul>
+        {% for sol in page.solutions %}
+        {% assign name = sol[0] %}
+        {% assign info = sol[1] %}
+          <li>
+            {{ name }}
+            {% for prob in info %}
+              {% assign score = prob.score %}
+              {% assign url = prob.problem_url %}
+              <a data-point="{{ score }}" href="{{ url }}">★</a>
+            {% endfor %}
+          </li>
+      {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
+

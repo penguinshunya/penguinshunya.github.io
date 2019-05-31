@@ -1,0 +1,89 @@
+- problem_name: いろはちゃんコンテスト Day4 E - 芽生え
+  problem_url: https://atcoder.jp/contests/iroha2019-day4/tasks/iroha2019_day4_e
+  site_name: AtCoder
+  score: 700
+  official: false
+  solutions: [Nim, 動的計画法, 余事象, XOR, $10^9+7$]
+  another_solutions: []
+  point: []
+
+- problem_name: ABC111 D - Robot Arms
+  problem_url: https://atcoder.jp/contests/abc111/tasks/arc103_b
+  site_name: AtCoder
+  score: 600
+  official: true
+  solutions: [2冪の網羅性]
+  another_solutions: []
+  point: []
+
+- problem_name: ABC128 C - Switches
+  problem_url: https://atcoder.jp/contests/abc128/tasks/abc128_c
+  site_name: AtCoder
+  score: 300
+  official: true
+  solutions: [全探索, bit全探索]
+  another_solutions: []
+  point: []
+
+- problem_name: ABC128 D - equeue
+  problem_url: https://atcoder.jp/contests/abc128/tasks/abc128_d
+  site_name: AtCoder
+  score: 400
+  official: true
+  solutions: [全探索]
+  another_solutions: []
+  point: []
+
+- problem_name: ABC128 E - Roadwork
+  problem_url: https://atcoder.jp/contests/abc128/tasks/abc128_e
+  site_name: AtCoder
+  score: 500
+  official: true
+  solutions: [座標圧縮, イベントソート]
+  another_solutions: [遅延評価セグメントツリー]
+  point: []
+
+- problem_name: ABC128 F - Frog Jump
+  problem_url: https://atcoder.jp/contests/abc128/tasks/abc128_f
+  site_name: AtCoder
+  score: 600
+  official: true
+  solutions: [時系列の無視, 動的計画法]
+  another_solutions: []
+  point: []
+
+- problem_name: ABC127 C - Prison
+  problem_url: https://atcoder.jp/contests/abc127/tasks/abc127_c
+  site_name: AtCoder
+  score: 300
+  official: true
+  solutions: []
+  another_solutions: [いもす法]
+  point: []
+
+- problem_name: ABC127 D - Integer Cards
+  problem_url: https://atcoder.jp/contests/abc127/tasks/abc127_d
+  site_name: AtCoder
+  score: 400
+  official: true
+  solutions: [問題の言い換え]
+  another_solutions: [map]
+  point: []
+
+- problem_name: ABC127 E - Cell Distance
+  problem_url: https://atcoder.jp/contests/abc127/tasks/abc127_e
+  site_name: AtCoder
+  score: 500
+  official: true
+  solutions: [シグマの交換・シグマの分解, $X$と$Y$を独立して考える]
+  another_solutions: []
+  point: []
+
+- problem_name: ABC127 F - Absolute Minima
+  problem_url: https://atcoder.jp/contests/abc127/tasks/abc127_f
+  site_name: AtCoder
+  score: 600
+  official: true
+  solutions: [凸関数同士を足すと凸関数, $f(x) = |x - a| + b$という形で表せる関数は凸関数]
+  another_solutions: []
+  point: []
