@@ -17,7 +17,7 @@ for (int l = 0, r = 0; l &lt; N; ) {
     /* accを更新してからr++ */
   }
 
-  /* ここでは、accが必ず条件を満たすことが保障される */
+  /* 区間[l, r)が条件を満たす範囲 */
 
   /* accを更新してからl++ */
 
@@ -25,7 +25,7 @@ for (int l = 0, r = 0; l &lt; N; ) {
   if (l >= r) r = l, acc = e;
 }
 </pre>
-<p>実装の方針としては、半開区間で実装しています。たとえば、上のテンプレートの7行目では、<code>acc</code>は半開区間$[l, r)$の値を保持しています。</p>
+<p>実装の方針としては、半開区間で実装しています。たとえば、上のテンプレートの7行目では、<code>acc</code>は区間$[l, r)$の値を保持しています。条件を満たす部分列の長さは$r-l$で取得できます。</p>
 <p>続けて2.のテンプレートも載せます。</p>
 <pre class="prettyprint linenums:1 lang-cpp">
 T acc = e;  // 蓄積値。eは単位元のようなもの
@@ -36,7 +36,7 @@ for (int l = 0, r = 0; l &lt; N; ) {
   /* 条件を満たさない状態で最後までたどり着いた */
   if (r == N) break;
 
-  /* ここでは、accとrを使えば必ず条件を満たすことが保障される */
+  /* 区間[l, r + 1)が条件を満たす範囲 */
 
   /* accを更新してからl++ */
 
@@ -71,6 +71,10 @@ td { vertical-align: top; }
   <tr>
     <td><a href="https://atcoder.jp/contests/arc022/tasks/arc022_2">AtCoder ARC022 B - 細長いお菓子</a></td>
     <td><a href="https://atcoder.jp/contests/arc022/submissions/5705708">ソースコードへのリンク</a>。<code>acc</code>は<code>set</code>、<code>e</code>は<code>{}</code>とします。</td>
+  </tr>
+  <tr>
+    <td><a href="https://atcoder.jp/contests/abc098/tasks/arc098_b">AtCoder ABC098 D - Xor Sum 2</a></td>
+    <td><a href="https://atcoder.jp/contests/abc098/submissions/5707106">ソースコードへのリンク</a>。<code>acc</code>が複数あるパターンです。</td>
   </tr>
 </table>
 <p><a href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a>以外の問題はすべて、1.のテンプレートに当てはめることができます。</p>
