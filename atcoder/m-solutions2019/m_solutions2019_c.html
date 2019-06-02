@@ -21,9 +21,9 @@ problem_url: https://atcoder.jp/contests/m-solutions2019/tasks/m_solutions2019_c
 <h3>Bが$N$回勝つとき</h3>
 <p>同じように解くことで、$_{N-1+i}C_i \times p^i \times q^N$とわかります（$i$はAの勝つ回数）。</p>
 <p>ということで、引き分けを考慮しない期待値$M$を求める式は次のようになります。</p>
-$$M = \sum_{i=0}^{N-1} (N + i) \times _{N-1+i}C_i \times p^N \times q^i + \sum_{i=0}^{N-1} (N + i) \times _{N-1+i}C_i \times p^i \times q^N$$
+$$M = \sum_{i=0}^{N-1} ((N + i) \times _{N-1+i}C_i \times p^N \times q^i) + \sum_{i=0}^{N-1} ((N + i) \times _{N-1+i}C_i \times p^i \times q^N)$$
 <p>この式を変形することで、次の式が得られます。</p>
-$$M = \sum_{i=0}^{N-1} (N + i) \times _{N-1+i}C_i \times (p^N \times q^i + p^i \times q^N)$$
+$$M = \sum_{i=0}^{N-1} ((N + i) \times _{N-1+i}C_i \times (p^N \times q^i + p^i \times q^N))$$
 <p>$_rC_n$、$A^n$、$B^n$は、事前に計算しておくことで$O(1)$で求められるため、全体として$O(N)$かかります（$_rC_n$については、少し工夫が必要です）。</p>
 <p>こうして$M$が得られたため、最後に$M / r$を計算して終わりです。</p>
 <h2>実装</h2>
