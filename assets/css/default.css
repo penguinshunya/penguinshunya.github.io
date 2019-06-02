@@ -56,3 +56,11 @@ li.L5, li.L6, li.L7, li.L8 {
 .linenums {
   margin-left: 10px;
 }
+.MathJax_SVG::before {
+  content: "";
+  padding-left: 0.25em;
+}
+.MathJax_SVG::after {
+  content: "";
+  padding-left: 0.25em;
+}
