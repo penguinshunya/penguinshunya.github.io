@@ -68,12 +68,12 @@ void solve() {
   rep(i, 20) rep(j, bit(20)) dp[i][j] = 1e9;
   dp[0][bit(n) - 1] = 0;
   rrep(S, bit(n) - 1) rep(u, n) {
+    if (S & bit(u)) continue;
     // u: 今いる頂点
     // v: 次に進む頂点
     each(e, edges[u]) {
       int v, c;
       tie(v, c) = e;
-      if (S & bit(u)) continue;
       amin(dp[u][S], dp[v][S | bit(u)] + c);
     }
   }
