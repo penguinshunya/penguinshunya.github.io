@@ -1,0 +1,91 @@
+---
+layout: default
+title: 半開区間 - ぺんぎんノート
+---
+<style>
+pre {
+  border-radius: 0.3em;
+  padding: 0.3em 0.6em;
+  background-color:white;
+}
+</style>
+<h2>半開区間の性質</h2>
+<div class="block">
+<ol style="margin:0">
+  <li>区間$[l, r)$の範囲の大きさは$r - l$</li>
+  <li>範囲が$R$の区間は$[i, i + R)$</li>
+  <li>長さ$N$の配列の区間$[i, i + R)$を参照したいとき、$(i \ge 0) \land (i + R \le N)$が真なら参照可能</li>
+  <li>for文の条件式を書くときに半開区間を意識すると、バグが発生しにくい</li>
+</ol>
+</div>
+<h2>4. について</h2>
+たとえば、長さ$N$の数列$a$の要素が$1$であるものの数を数えるとき、次のようなコードを書きます。</p>
+<pre>
+int cnt = 0;
+for (int i = 0; i &lt; N; i++) if (a[i] == 1) cnt++;
+</pre>
+ここで、$1$が連続して$3$つ並ぶものの数を数えたいとします（$(2,1,1,1,1,2)$は$2$個と数えます）。上記のコードをどのように書き換えればいいでしょうか。以下の4パターンが考えられます。
+<pre>
+int cnt = 0;
+for (int i = 0; i <span style="color:red">+ x</span> &lt; N; i++) {
+  if (a[i] == 1 && a[i + 1] == 1 && a[i + 2] == 1) cnt++;
+}
+</pre>
+<pre>
+int cnt = 0;
+for (int i = 0; i &lt; N <span style="color:red">- x</span>; i++) {
+  if (a[i] == 1 && a[i + 1] == 1 && a[i + 2] == 1) cnt++;
+}
+</pre>
+<pre>
+int cnt = 0;
+for (int i = 0; i &lt; N; i++) {
+  if (i <span style="color:red">+ x</span> &lt; N && a[i] == 1 && a[i + 1] == 1 && a[i + 2] == 1) cnt++;
+}
+</pre>
+<pre>
+int cnt = 0;
+for (int i = 0; i &lt; N; i++) {
+  if (i &lt; N <span style="color:red">- x</span> && a[i] == 1 && a[i + 1] == 1 && a[i + 2] == 1) cnt++;
+}
+</pre>
+<p>このとき、<code>x</code>の値はどうすればいいでしょうか。少し考えることで$2$とわかりますが、範囲が$3$にも関わらず$2$を代入しないといけないということで、頭を使う必要が出てきます。これがひとつならいいのですが、他にも考えなければならないことがあると、途端に訳がわからなくなります。そしてバグを埋め込む可能性が高くなります。</p>
+<p>ここで、3. の性質を利用することを考えます。「$i + R \le N$が真なら参照可能」の部分です。この性質を利用したコードは以下になります。</p>
+<pre>
+int cnt = 0;
+for (int i = 0; i <span style="color:red">+ x</span> &lt;<span style="color:red">=</span> N; i++) {
+  if (a[i] == 1 && a[i + 1] == 1 && a[i + 2] == 1) cnt++;
+}
+</pre>
+<p>for文の条件式にイコールが追加されました。こうしたとき、<code>x</code>に入れる値は「範囲」であるため、何も考えずに$3$にできます。最終的には次のようなコードになります。</p>
+<pre>
+int cnt = 0;
+for (int i = 0; i + 3 &lt;= N; i++) {
+  if (a[i] == 1 && a[i + 1] == 1 && a[i + 2] == 1) cnt++;
+}
+</pre>
+<p>この書き方の優れているところは、<code>i + 3 &lt;= N</code>というコードを書いているときに、「右の端点についての条件を書いている」と自覚できることです。それに対し、<code>i &lt; N</code>という条件が何を表しているのかについて説明するのは意外と大変です。そういった「よくわからないもの」に<code>x</code>が加わるため、余計に訳がわからなくなります。<code>x</code>の部分にてきとーに値を入れて提出し、WAになったことはないでしょうか？</p>
+
+<p>更に優れている点として、逆向きのループにも対応している点があります。もし半開区間で実装しているという自覚がなければ、以下のコードの<code>x</code>に何を入れるかについて少し悩むと思います。</p>
+<pre>
+int cnt = 0;
+for (int i = <span style="color:red">x</span>; i &gt;= 0; i--) {
+  if (a[i] == 1 && a[i + 1] == 1 && a[i + 2] == 1) cnt++;
+}
+</pre>
+<h3>半開区間を意識した場合</h3>
+<p>半開区間を意識すると、<code>x</code>には左の端点を入れることがわかります。そして、左の端点の最大値はいくつかを考えたとき、右の端点の最大値が$N$であることを考慮すると、1. や2. の性質から$N - 3$であることがわかります。</p>
+<pre>
+int cnt = 0;
+for (int i = <span style="color:red">N - 3</span>; i &gt;= 0; i--) {
+  if (a[i] == 1 && a[i + 1] == 1 && a[i + 2] == 1) cnt++;
+}
+</pre>
+<h3>半開区間を意識しない場合</h3>
+<p>半開区間を意識しない場合、おそらく<code>a[i + 2]</code>の部分から<code>x</code>を求めることを考えます。そして、$i + 2$が$N$未満になるような$i$の最大値はいくつだろうと考え、$i$に$N - 2$や$N - 3$を代入し、$N - 2$は範囲外にアクセスしてしまうということに気が付き、いずれ$N - 3$を初期値にすればいいとわかります。</p>
+<h2>結論</h2>
+<p>for文の条件式を書くときに半開区間を意識することで、バグが発生しにくくなります。最後に、半開区間を意識した実装と意識していない実装へのリンクを貼っておきます。問題は、<a target="_blank" href="https://atcoder.jp/contests/agc034/tasks/agc034_a">AGC034 A - Kenken Race</a>です。</p>
+<ul>
+  <li><a target="_blank" href="https://atcoder.jp/contests/agc034/submissions/5784482">半開区間を意識した実装</a>：条件式を左の端点に固定しています。とても実装しやすかったです。</li>
+  <li><a target="_blank" href="https://atcoder.jp/contests/agc034/submissions/5749867">半開区間を意識していない実装</a>：コンテスト本番に提出したコード。危なっかしい実装です。</li>
+</ul>
