@@ -3,7 +3,7 @@
   <Head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{{ page.site }} {{ page.prefix }} - {{ page.problem_name }}</title>
+    <title>{{ page.title }}</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP|Source+Code+Pro&display=swap" rel="stylesheet">
     <link href="/assets/css/default.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
@@ -19,8 +19,7 @@
   </head>
   <body>
     <div id="container">
-      <h1>{{ page.site }} {{ page.prefix }} - {{ page.problem_name }} {{ page.level }}</h1>
-      <a target="_blank" href="{{ page.problem_url }}">{{ page.prefix }} - {{ page.problem_name }}</a>
+      <h1>{{ page.title }}</h1>
       {{ page.content }}
     </div>
     <script src="https://utteranc.es/client.js"
