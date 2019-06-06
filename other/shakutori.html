@@ -2,7 +2,6 @@
 layout: comment-page
 title: しゃくとり法 - ぺんぎんノート
 ---
-<base target="_blank">
 しゃくとり法を使う問題は、2種類に分けられます。
 <ol>
   <li>範囲を広げていくと、いつか条件を満たさなくなる</li>
@@ -54,30 +53,30 @@ td { vertical-align: top; }
 <table border="1" style="border-collapse: collapse;">
   <tr style="text-align: left;"><th>問題</th><th>実装</th></tr>
   <tr>
-    <td><a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_C&lang=jp">AOJ Course The Number of Windows</a></td>
-    <td><a href="http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=3612455#1">ソースコードへのリンク</a>。<code>acc</code>は整数型、<code>e</code>は$0$とします。</td>
+    <td><a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_C&lang=jp">AOJ Course The Number of Windows</a></td>
+    <td><a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=3612455#1">ソースコードへのリンク</a>。<code>acc</code>は整数型、<code>e</code>は$0$とします。</td>
   </tr>
   <tr>
-    <td><a href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a></td><td>POJでは実装を公開できないので、ページ下に掲載します。</td>
+    <td><a target="_blank" href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a></td><td>POJでは実装を公開できないので、ページ下に掲載します。</td>
   </tr>
   <tr>
-    <td><a href="https://atcoder.jp/contests/abc032/tasks/abc032_c">AtCoder ABC032 C - 列</a></td>
-    <td><a href="https://atcoder.jp/contests/abc032/submissions/5704111">ソースコードへのリンク</a>。<code>acc</code>は整数型、<code>e</code>は$1$とします。</td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/abc032/tasks/abc032_c">AtCoder ABC032 C - 列</a></td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/abc032/submissions/5704111">ソースコードへのリンク</a>。<code>acc</code>は整数型、<code>e</code>は$1$とします。</td>
   </tr>
   <tr>
-    <td><a href="https://atcoder.jp/contests/abc038/tasks/abc038_c">AtCoder ABC038 C - 単調増加</a></td>
-    <td><a href="https://atcoder.jp/contests/abc038/submissions/5704052">ソースコードへのリンク</a>。<code>acc</code>は直前の数字、<code>e</code>は$0$とします。</td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/abc038/tasks/abc038_c">AtCoder ABC038 C - 単調増加</a></td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/abc038/submissions/5704052">ソースコードへのリンク</a>。<code>acc</code>は直前の数字、<code>e</code>は$0$とします。</td>
   </tr>
   <tr>
-    <td><a href="https://atcoder.jp/contests/arc022/tasks/arc022_2">AtCoder ARC022 B - 細長いお菓子</a></td>
-    <td><a href="https://atcoder.jp/contests/arc022/submissions/5705708">ソースコードへのリンク</a>。<code>acc</code>は<code>set</code>、<code>e</code>は<code>{}</code>とします。</td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/arc022/tasks/arc022_2">AtCoder ARC022 B - 細長いお菓子</a></td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/arc022/submissions/5705708">ソースコードへのリンク</a>。<code>acc</code>は<code>set</code>、<code>e</code>は<code>{}</code>とします。</td>
   </tr>
   <tr>
-    <td><a href="https://atcoder.jp/contests/abc098/tasks/arc098_b">AtCoder ABC098 D - Xor Sum 2</a></td>
-    <td><a href="https://atcoder.jp/contests/abc098/submissions/5707106">ソースコードへのリンク</a>。<code>acc</code>が複数あるパターンです。</td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/abc098/tasks/arc098_b">AtCoder ABC098 D - Xor Sum 2</a></td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/abc098/submissions/5707106">ソースコードへのリンク</a>。<code>acc</code>が複数あるパターンです。</td>
   </tr>
 </table>
-<p><a href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a>以外の問題はすべて、1.のテンプレートに当てはめることができます。</p>
+<p><a target="_blank" href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a>以外の問題はすべて、1.のテンプレートに当てはめることができます。</p>
 <pre class="prettyprint linenums:1 lang-cpp">
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -111,11 +110,11 @@ int main() {
   return 0;
 }
 </pre>
-<p>こちらが<a href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a>の実装です。<code>acc</code>は整数型、<code>e</code>は$0$です。2.の問題なので、<code>if (r == N) break;</code>という行があります。条件を満たす数列の長さは$r - l + 1$です。$r - l$でない理由は、$r - l$は「ぎりぎり条件を満たさない数列の長さ」だからです。$1$を足すことで、条件を満たす数列の長さになります。</p>
+<p>こちらが<a target="_blank" href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a>の実装です。<code>acc</code>は整数型、<code>e</code>は$0$です。2.の問題なので、<code>if (r == N) break;</code>という行があります。条件を満たす数列の長さは$r - l + 1$です。$r - l$でない理由は、$r - l$は「ぎりぎり条件を満たさない数列の長さ」だからです。$1$を足すことで、条件を満たす数列の長さになります。</p>
 <h2>まとめ</h2>
 <ul>
   <li>範囲が広がるほど条件を満たしにくくなる → 1.のテンプレート</li>
   <li>範囲が広がるほど条件を満たしやすくなる → 2.のテンプレート</li>
 </ul>
 <h2>参考</h2>
-<a href="https://qiita.com/drken/items/ecd1a472d3a0e7db8dce">しゃくとり法 (尺取り法) の解説と、それを用いる問題のまとめ</a>
+<a target="_blank" href="https://qiita.com/drken/items/ecd1a472d3a0e7db8dce">しゃくとり法 (尺取り法) の解説と、それを用いる問題のまとめ</a>
