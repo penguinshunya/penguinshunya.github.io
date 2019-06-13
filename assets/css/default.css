@@ -27,6 +27,9 @@ details {
 .wrapping {
   overflow: scroll;
 }
+.wrapping::-webkit-scrollbar {
+  display: none;
+}
 #container {
   margin: 0 auto;
   max-width: 840px;
