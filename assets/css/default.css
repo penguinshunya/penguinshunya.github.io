@@ -64,6 +64,12 @@ li.L5, li.L6, li.L7, li.L8 {
   content: "";
   padding-left: 0.25em;
 }
+.MathJax_SVG_Display {
+  overflow: scroll;
+}
+.MathJax_SVG_Display::-webkit-scrollbar {
+  display: none;
+}
 details summary::-webkit-details-marker {
   display: none;
 }

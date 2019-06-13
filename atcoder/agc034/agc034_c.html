@@ -15,14 +15,12 @@ $0 \le a_i \le X$、$l_i \le c_i \le u_i$、$\sum a_ic_i \ge \sum b_ic_i$を満�
 <p>ここで、3つ目の条件式を変形してみます。すると、次の式が得られます。</p>
 $$\sum_{i=1}^N (a_i - b_i) \times c_i \ge 0$$
 <p>$a_i$の値が決まっているとすると、$a_i - b_i \lt 0$の場合は$c_i$をできるだけ小さくすればいいこと、$a_i - b_i \ge 0$の場合は$c_i$をできるだけ大きくすればいいことがわかります。このように$c_i$を選ぶことで、上の条件を満たしやすくなります。そしてこの問題では、「できるだけ小さくする」は$l_i$にすること、「できるだけ大きくする」は$u_i$にすることです。ということで、$D_i(a_i) = (a_i - b_i) \times c_i$とおくと、$D_i(a_i)$は次の式になります。</p>
-<div class="wrapping">
 \[
 D_i(a_i) = \begin{cases}
   l_i \times (a_i - b_i) & (a_i - b_i \lt 0) \\
   u_i \times (a_i - b_i) & (a_i - b_i \ge 0) \\
 \end{cases}
 \]
-</div>
 <p>$D_i(a_i)$を使って問題を書き直すと、次のようになります。</p>
 <div class="block">
 $0 \le a_i \le X$、$\sum D_i(a_i) \ge 0$を満たす。$\sum a_i$の最小値を求めよ。
@@ -33,7 +31,6 @@ $0 \le a_i \le X$、$\sum D_i(a_i) \ge 0$を満たす。$\sum a_i$の最小値�
 長さ$X$の数列が$N$個あります。これらの数列を$x_i(0 \le i \le N)$とおくことにします。$x_i$の要素は、前から$b_i$個は$l_i$で、残りの$X-b_i$個は$u_i$です。各数列の前から$a_i$個を選び、それらを足したものの合計が$\sum l_ib_i$以上にならなければいけません。$\sum a_i$の最小値を求めてください。
 </div>
 <p>「長さ$X$の数列が$N$個」を図で表すと、次のようになります。</p>
-<div class="wrapping">
 \begin{array}{llllllllllllll}
 l_1 & l_1 & l_1 & \ldots & l_1 & u_1 & \ldots & u_1 & u_1 & u_1 & u_1 & u_1 & u_1 \\
 l_2 & l_2 & l_2 & l_2 & l_2 & \ldots & l_2 & u_2 & \ldots & u_2 & u_2 & u_2 & u_2 \\
@@ -41,7 +38,6 @@ l_3 & \ldots & l_3 & u_3 & u_3 & u_3 & u_3 & \ldots & u_3 & u_3 & u_3 & u_3 & u_
 \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
 l_N & l_N & l_N & l_N & \ldots & l_N & u_N & \ldots & u_N & u_N & u_N & u_N & u_N \\
 \end{array}
-</div>
 <p>この問題の解き方ですが、二分探索で解くことを考えます。すなわち、$\sum a_i$の値（これを$k$とおきます）を決めて、そのときに$\sum l_ib_i$以上にすることができるかどうかという問題を考えます。</p>
 <p>実はこのとき、$1$個以上$X - 1$個以下を選ぶ数列の個数は高々ひとつです。つまり、それ以外の数列については、$0$個か$X$個を選ぶことになります。これを証明します。</p>
 <h3>証明</h3>
