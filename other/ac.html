@@ -3,10 +3,19 @@ layout: comment-page
 title: 挑戦した問題一覧
 ---
 <style>
+ul {
+  padding-left: 0;
+}
 li {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+h2 {
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #7db4e6;/*左線*/
 }
 </style>
 <h2>ACした問題</h2>
@@ -17,7 +26,6 @@ li {
     AOJ Queue</a>：キューの使い方を学べる問題</li>
   <li><a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_3_A&lang=jp">
     AOJ Stack</a>：スタックの使い方を学べる問題</li>
-  <hr>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc131/tasks/abc131_a">
     AtCoder ABC131 A - Security</a>：文字列内の文字を参照できるか</li>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc131/tasks/abc131_b">
@@ -28,7 +36,6 @@ li {
     AtCoder ABC131 D - Megalomania</a>：期限の迫っている仕事を先にやるという貪欲</li>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc131/tasks/abc131_e">
     AtCoder ABC131 E - Friendships</a>：グラフ構築問題は、極端なグラフ（スターや完全グラフ、ライングラフ）を考えると良さげ</li>
-  <hr>
   <li><a target="_blank" href="https://codeforces.com/contest/1180/problem/A">
     Codeforces #569 (Div. 2) A. Alex and a Rhombus</a>：よく見る問題。$\sum_{i=1}^n i^2$でOK。本番では少しパニクって変な解法を取ってしまった</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1180/problem/B">
@@ -37,7 +44,6 @@ li {
     Codeforces #569 (Div. 2) C. Valeriy and Deque</a>：いずれ一番大きい要素が前に固定される。その後は、先頭を除く要素がぐるぐる回る。それには周期性があるので、操作回数が$10^{18}$とかでも大丈夫。C問題あたりから落ち着いてきた</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1185/problem/G1">
     Codeforces #568 (Div. 2) G1. Playlist for Polycarp (easy version)</a>：「$i$番目の曲を選んだかどうか」のビットマスクを用意したのに、曲を選択せずにDPを行ったせいでバグった。まだ重複せずに数えることに慣れていないっぽい。巡回セールスマン問題を意識すると良さげ</li>
-  <hr>
   <li><a target="_blank" href="https://yukicoder.me/problems/no/3">
     yukicoder No.3 ビットすごろく</a>：ダイクストラで解いた。BFSとの違いがよくわかっていないっぽい</li>
   <li><a target="_blank" href="https://yukicoder.me/problems/no/59">
@@ -53,12 +59,10 @@ li {
 <ul>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc131/tasks/abc131_f">
     AtCoder ABC131 F - Must Be Rectangular!</a>：座標を二部グラフで表現</li>
-  <hr>
   <li><a target="_blank" href="https://codeforces.com/contest/1185/problem/F">
     Codeforces #568 (Div. 2) F. Two Pizzas</a>：小さな集合を扱うときはsetではなくbitを使う（忘れがち）</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1180/problem/D">
     Codeforces #569 (Div. 2) D. Tolik and His Uncle</a>：渦巻き状に配置していく。どんなときでも可能。考慮漏れがあって2WA。もっとWAしててもおかしくなかった。【追記】上下から狭めていくように埋めていくほうが実装しやすかった。構築系問題の解法は自由度が高い分、シンプルな方法が思いつかなかったときに複雑な方法を選択しがち</li>
-  <hr>
   <li><a target="_blank" href="https://yukicoder.me/problems/no/141">
     yukicoder No.141 魔法少女コバ</a>：$M - Nc \le N$を満たす最小の$c$を求める必要あり</li>
   <li><a href="https://yukicoder.me/problems/no/451">
@@ -67,7 +71,7 @@ li {
 <h2>ACしていない問題</h2>
 <ul>
   <li><a target="_blank" href="https://codeforces.com/contest/1185/problem/G1">
-    Codeforces #568 (Div. 2) G2. Playlist for Polycarp (hard version)</a></li>
+    Codeforces #568 (Div. 2) G2. Playlist for Polycarp (hard version)</a>：DPをうまくやって状態数を減らすっぽい</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1180/problem/E">
     Codeforces #569 (Div. 2) E. Serge and Dining Room</a>：遅延セグ木を使うみたい</li>
 </ul>
