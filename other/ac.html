@@ -18,6 +18,13 @@ h2 {
   border-left: solid 5px #7db4e6;/*左線*/
 }
 </style>
+ACした問題の数：<span id="count"></span>
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("count").textContent = 
+    "$" + document.getElementById("ac").querySelectorAll("li").length + "$";
+});
+</script>
 <h2>ACしたけど不安の残る問題</h2>
 <ul>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc043/tasks/arc059_b">
@@ -57,7 +64,7 @@ h2 {
     Codeforces #570 (Div. 3) F. Topforces Strikes Back</a>：</li>
 </ul>
 <h2>ACした問題</h2>
-<ul>
+<ul id="ac">
   <li><a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C&lang=jp">
     AOJ Lowest Common Ancestor</a>：ダブリングの要素数は$2^{k-1} \ge |V| - 1$を満たす最小の$k$</li>
   <li><a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_3_B">
