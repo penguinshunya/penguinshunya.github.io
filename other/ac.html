@@ -1,12 +1,12 @@
 ---
-layout: comment-page
+layout: default
 title: 挑戦した問題一覧
 ---
 <style>
-ul {
+#container > ul {
   padding-left: 0;
 }
-li {
+#container > ul > li {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -39,10 +39,8 @@ window.addEventListener("DOMContentLoaded", () => {
     AtCoder ABC065 D - Built?</a>：辺の候補を減らして最小全域木。1つの辺を2つに分解</li>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc078/tasks/arc085_b">
     AtCoder ABC078 D - ABS</a>：$O(1)$解法もしくは<a target="_blank" href="https://atcoder.jp/contests/abc078/submissions/6127931">ゲームDP</a>（メモ化再帰）</li>
-  <li><a target="_blank" href="https://atcoder.jp/contests/abc131/tasks/abc131_f">
-    AtCoder ABC131 F - Must Be Rectangular!</a>：座標を二部グラフで表現。座標上の点は、二部グラフの辺に対応</li>
-  <li><a target="_blank" href="https://atcoder.jp/contests/iroha2019-day1/tasks/iroha2019_day1_i">
-    AtCoder いろはちゃんコンテスト Day1 I - リスのお仕事</a>：最短距離が求まっても、seen=trueにしてはいけない</li>
+  <li><a target="_blank" href="https://atcoder.jp/contests/abc076/tasks/abc076_d">
+    AtCoder ARC033 C - データ構造</a>：個数のRSQ。写経AC。Treapでも解けそう</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1185/problem/F">
     Codeforces #568 (Div. 2) F. Two Pizzas</a>：小さな集合を扱うときはsetではなくbitを使う</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1180/problem/D">
@@ -62,8 +60,6 @@ window.addEventListener("DOMContentLoaded", () => {
     Codeforces #568 (Div. 2) G2. Playlist for Polycarp (hard version)</a>：DPをうまくやって状態数を減らすっぽい</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1180/problem/E">
     Codeforces #569 (Div. 2) E. Serge and Dining Room</a>：遅延セグ木を使うみたい</li>
-  <li><a target="_blank" href="https://codeforces.com/contest/1183/problem/F">
-    Codeforces #570 (Div. 3) F. Topforces Strikes Back</a>：</li>
 </ul>
 <h2>ACした問題</h2>
 <ul id="ac">
@@ -152,6 +148,10 @@ window.addEventListener("DOMContentLoaded", () => {
     AtCoder ABC131 D - Megalomania</a>：期限の迫っている仕事を先にやるという貪欲</li>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc131/tasks/abc131_e">
     AtCoder ABC131 E - Friendships</a>：グラフ構築問題は、最初に極端なグラフ（スターや完全グラフ、ライングラフ）を考えると良さげ</li>
+  <li><a target="_blank" href="https://atcoder.jp/contests/abc131/tasks/abc131_f">
+    AtCoder ABC131 F - Must Be Rectangular!</a>：座標を二部グラフで表現。座標上の点は、二部グラフの辺に対応</li>
+  <li><a target="_blank" href="https://atcoder.jp/contests/iroha2019-day1/tasks/iroha2019_day1_i">
+    AtCoder いろはちゃんコンテスト Day1 I - リスのお仕事</a>：最短距離が求まっても、seen=trueにしてはいけない</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1185/problem/G1">
     Codeforces #568 (Div. 2) G1. Playlist for Polycarp (easy version)</a>：巡回セールスマン問題を意識すると良さげ</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1180/problem/A">
@@ -170,6 +170,8 @@ window.addEventListener("DOMContentLoaded", () => {
     Codeforces #570 (Div. 3) D. Candy Box (easy version)</a>：抽象化して優先度付きキュー</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1183/problem/E">
     Codeforces #570 (Div. 3) E. Subsequences (easy version)</a>：hardと同じ解法</li>
+  <li><a target="_blank" href="https://codeforces.com/contest/1183/problem/F">
+    Codeforces #570 (Div. 3) F. Topforces Strikes Back</a>：「3個」に着目（$k$個ではない）。場合分けして複雑さ軽減</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1183/problem/G">
     Codeforces #570 (Div. 3) G. Candy Box (hard version)</a>：優先度付きキューと少しの工夫</li>
                                      
