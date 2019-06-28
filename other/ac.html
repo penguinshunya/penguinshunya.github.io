@@ -21,12 +21,29 @@ h2 {
 ACした問題の数：<span id="count"></span>
 <script>
 window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("count").textContent = 
-    "$" + document.getElementById("ac").querySelectorAll("li").length + "$";
+  let message = "";
+
+  let c = 0;
+  c += document.getElementById("ac").querySelectorAll("li").length;
+  c += document.getElementById("fuan").querySelectorAll("li").length;
+  message += c;
+
+  const format = d => {
+    return `${ d.getFullYear() } 年 ${ d.getMonth() + 1 } 月 ${ d.getDate() } 日`;
+  };
+
+  {
+    const fst = new Date(2019, 5, 20);
+    const now = new Date();
+    const diff = Math.floor((now - fst) / 86400000);
+    message += "（" + format(fst) + " 〜 " + format(now) + ` の ${ diff } 日間）`;
+  }
+
+  document.getElementById("count").textContent = message;
 });
 </script>
 <h2>ACしたけど不安の残る問題</h2>
-<ul>
+<ul id="fuan">
   <li><a target="_blank" href="https://atcoder.jp/contests/abc043/tasks/arc059_b">
     AtCoder ABC043 D - アンバランス</a>：証明。"aa"や"aba"を含まないとき、アンバランスな部分文字列は存在しない</li>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc044/tasks/arc060_b">
@@ -152,8 +169,11 @@ window.addEventListener("DOMContentLoaded", () => {
     AtCoder ABC084 D - 2017-like Number</a>：素数判定。$1 \le n \le 10^5$の数をあらかじめ調べておいて累積和</li>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc085/tasks/abc085_d">
     AtCoder ABC085 D - Katana Thrower</a>：$a_i$と$b_i$は分けて考えられる。順番は無視できる。境界値に注意</li>
+  <li><a target="_blank" href="https://atcoder.jp/contests/abc088/tasks/abc088_d">
+    AtCoder ABC088 D - Grid Repainting</a>：最短経路を求める必要はなく、最短距離だけでOK</li>
+  
   <li><a target="_blank" href="https://atcoder.jp/contests/abc128/tasks/abc128_e">
-    AtCoder ABC128 E - Roadwork</a>：座標圧縮 + 双対セグ木が一番楽に実装できた</li>
+    AtCoder ABC128 E - Roadwork</a>：座標圧縮 + 双対セグ木が一番楽</li>
   
   <li><a target="_blank" href="https://atcoder.jp/contests/abc131/tasks/abc131_a">
     AtCoder ABC131 A - Security</a>：文字列内の文字を参照できるか</li>
