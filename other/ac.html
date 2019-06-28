@@ -28,14 +28,14 @@ window.addEventListener("DOMContentLoaded", () => {
   c += document.getElementById("fuan").querySelectorAll("li").length;
   message += c;
 
-  const format = d => {
-    return `${ d.getFullYear() } 年 ${ d.getMonth() + 1 } 月 ${ d.getDate() } 日`;
-  };
-
   {
+    const format = d => {
+      return `${ d.getFullYear() } 年 ${ d.getMonth() + 1 } 月 ${ d.getDate() } 日`;
+    };
+
     const fst = new Date(2019, 5, 20);
     const now = new Date();
-    const diff = Math.floor((now - fst) / 86400000);
+    const diff = Math.floor((now - fst) / 86400000) + 1;
     message += "（" + format(fst) + " 〜 " + format(now) + ` の ${ diff } 日間）`;
   }
 
@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
     AtCoder ABC086 D - Checker</a>：実装難。市松模様の正方形内にある点の個数を求める</li>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc087/tasks/arc090_b">
     AtCoder ABC087 D - People on a Line</a>：UnionFind木の拡張かDFS。DFSのほうが楽</li>
-  <li><a target="_blank" href="https://atcoder.jp/contests/abc076/tasks/abc076_d">
+  <li><a target="_blank" href="https://atcoder.jp/contests/arc033/tasks/arc033_3">
     AtCoder ARC033 C - データ構造</a>：個数のRSQ。写経AC。Treapでも解けそう</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1185/problem/F">
     Codeforces #568 (Div. 2) F. Two Pizzas</a>：小さな集合を扱うときはsetではなくbitを使う</li>
@@ -94,7 +94,6 @@ window.addEventListener("DOMContentLoaded", () => {
     AOJ Range Query - RMQ and RUQ</a>：遅延セグ木の練習問題。<a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=3696009#1">提出コード</a></li>
   <li><a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G&lang=jp">
     AOJ Range Query - RSQ and RAQ</a>：遅延セグ木の練習問題。<a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=3696196#1">提出コード</a></li>
-  
   <li><a target="_blank" href="https://atcoder.jp/contests/abc042/tasks/arc058_b">
     AtCoder ABC042 D - いろはちゃんとマス目</a>：グリッド上での数え上げ。グリッドをグラフで表すと良さげ</li>
   <li><a target="_blank" href="https://atcoder.jp/contests/abc045/tasks/arc061_b">
@@ -189,6 +188,7 @@ window.addEventListener("DOMContentLoaded", () => {
     AtCoder ABC131 F - Must Be Rectangular!</a>：座標を二部グラフで表現。座標上の点は、二部グラフの辺に対応</li>
   <li><a target="_blank" href="https://atcoder.jp/contests/iroha2019-day1/tasks/iroha2019_day1_i">
     AtCoder いろはちゃんコンテスト Day1 I - リスのお仕事</a>：最短距離が求まっても、seen=trueにしてはいけない</li>
+
   <li><a target="_blank" href="https://codeforces.com/contest/1185/problem/G1">
     Codeforces #568 (Div. 2) G1. Playlist for Polycarp (easy version)</a>：巡回セールスマン問題を意識すると良さげ</li>
   <li><a target="_blank" href="https://codeforces.com/contest/1180/problem/A">
