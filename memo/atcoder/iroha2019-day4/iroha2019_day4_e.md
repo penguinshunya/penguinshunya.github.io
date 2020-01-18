@@ -42,8 +42,12 @@ problem_url: https://atcoder.jp/contests/iroha2019-day4/tasks/iroha2019_day4_e
 </table>
 </div>
 $dp[i][j]$が既に求まっているものとして遷移を考えます。ここで、$K$の2進数表記での桁数を$D$とおくことにします。  
-<h3>1. $f(K, D - i) = 0$のとき</h3>
+
+### 1. $f(K, D - i) = 0$のとき
+
 $N - j$個の要素については、$K$を超えてはいけないので$0$を選ぶ必要があり、$1$通りです。残りの$j$個の要素については、$0$と$1$のどちらを選択することも可能ですが、$1$の個数は偶数でなければならないため$2^{j-1}$通りです（ただし、$j=0$のときは$1$通りです）。ということで遷移は以下です。  
+
+$$
 \begin{alignat*}{1}
 \left\{
 \begin{array}{ll}
@@ -52,11 +56,15 @@ dp[i + 1][j] \mathrel{+}= dp[i][j] &(j = 0)
 \end{array}
 \right.
 \end{alignat*}
-<h3>2. $f(K, D - i) = 1$のとき</h3>
+$$
+
+### 2. $f(K, D - i) = 1$のとき
 $j$個の要素については、$N - j$が奇数の場合は奇数個の$1$を、偶数の場合は偶数個の$1$を選ぶことになり、どちらも$2^{j-1}$通りです。  
 $N-j$個の要素については、$0$と$1$のどちらを選択することも可能です。$0$を選択する個数を$k$としたとき、$K$未満に確定する要素が$k$個増えるため、遷移先は$dp[i + 1][j + k]$になります。$N-j$個から$k$個の$0$を選ぶ方法は$_{N-j}C_k$通りあるため、最終的には次のような遷移になります。  
 $$dp[i + 1][j + k] \mathrel{+}= dp[i][j] \times 2^{j-1} \times _{N-j}C_k$$
 ここで一つ注意すべき点があり、$j = 0$かつ$N-k$が奇数のときは、$\sum_{l=1}^{N} f(A_l, D - i)$が必ず奇数となるため0通りです。  
+
+$$
 \begin{alignat*}{1}
 \left\{
 \begin{array}{ll}
@@ -66,48 +74,51 @@ dp[i + 1][j + k] \mathrel{+}= dp[i][j] \times _{N-j}C_k \times 2^{j-1} &(otherwi
 \end{array}
 \right.
 \end{alignat*}
+$$
+
 $dp[0][0] = 1$、$dp[i][j] = 0 (i \neq 0 \lor j \neq 0)$を初期値としてDPを行ったあと、$\sum_{i = 0}^{N} dp[D][i]$が答えになります。事前に$0 \le n, r \le N$の範囲の$2^n$と$_nC_r$を計算しておくことで、各遷移の計算量が$O(1)$となり、全体で$O(N^2\log K)$の計算量となるため間に合います。  
 
 ## 提出コード
 
-  `ModInt`の定義は省略しています。<a target="_blank" href="https://atcoder.jp/contests/iroha2019-day4/submissions/5440144">実際に提出したコード</a>
-<pre class="prettyprint linenums:1 lang-cpp">
-#include &lt;bits/stdc++.h&gt;
+`ModInt`の定義は省略しています。<a target="_blank" href="https://atcoder.jp/contests/iroha2019-day4/submissions/5440144">実際に提出したコード</a>
+
+```cpp
+#include <bits/stdc++.h>
 
 using namespace std;
-using mint = ModInt&lt;1000000007&gt;;
+using mint = ModInt<1000000007>;
 
 mint dp[80][2020];
 
 int main() {
   int N;
   long long K;
-  cin &gt;&gt; N &gt;&gt; K;
+  cin >> N >> K;
   int D = 0;
   {
     long long k = K;
-    while (k) D++, k &gt;&gt;= 1;
+    while (k) D++, k >>= 1;
   }
-  vector&lt;mint&gt; pow2(N + 1);
+  vector<mint> pow2(N + 1);
   {
     pow2[0] = 1;
-    for (int i = 0; i &lt; N; i++) {
+    for (int i = 0; i < N; i++) {
       pow2[i + 1] = pow2[i] * 2;
     }
   }
-  vector&lt;vector&lt;mint&gt;&gt; comb(N + 1, vector&lt;mint&gt;(N + 1));
+  vector<vector<mint>> comb(N + 1, vector<mint>(N + 1));
   {
-    for (int i = 0; i &lt;= N; i++) {
+    for (int i = 0; i <= N; i++) {
       comb[i][0] = 1;
-      for (int j = 0; j &lt; i; j++) {
+      for (int j = 0; j < i; j++) {
         comb[i][j + 1] = comb[i][j] * (i - j) / (j + 1);
       }
     }
   }
   dp[0][0] = 1;
-  for (int i = 0; i &lt; D; i++) {
-    bool bit = (K &gt;&gt; (D - i - 1)) & 1;
-    for (int j = 0; j &lt;= N; j++) {
+  for (int i = 0; i < D; i++) {
+    bool bit = (K >> (D - i - 1)) & 1;
+    for (int j = 0; j <= N; j++) {
       if (!bit) {
         if (j == 0) {
           dp[i + 1][j] += dp[i][j];
@@ -116,7 +127,7 @@ int main() {
         }
         continue;
       }
-      for (int k = 0; k &lt;= N - j; k++) {
+      for (int k = 0; k <= N - j; k++) {
         if (j == 0 && (N - k) % 2 == 1) {
           continue;
         }
@@ -129,13 +140,13 @@ int main() {
     }
   }
   mint ans = 1;
-  for (int i = 0; i &lt; N; i++) {
+  for (int i = 0; i < N; i++) {
     ans *= ((K + 1) % 1000000007);
   }
-  for (int i = 0; i &lt;= N; i++) {
+  for (int i = 0; i <= N; i++) {
     ans -= dp[D][i];
   }
-  cout &lt;&lt; ans &lt;&lt; endl;
+  cout << ans << endl;
   return 0;
 }
-</pre>
+```
