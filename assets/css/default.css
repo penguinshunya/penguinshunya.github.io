@@ -1,7 +1,8 @@
 body {
-  font-family: 'Noto Serif JP', serif;
+  font-family: "Roboto Mono for Powerline", 'Noto Serif JP', serif;
   background-color: white;
   line-height: 1.8em;
+  font-size: 1.2em;
 }
 pre, code {
   font-family: "Roboto Mono for Powerline", 'Source Code Pro', monospace;

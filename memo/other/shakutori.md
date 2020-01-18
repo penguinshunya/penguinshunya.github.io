@@ -110,8 +110,8 @@ int main() {
       sum -= a[l++];
       if (l >= r) r = l, sum = 0;
     }
-    if (ans == N + 1) cout << 0 << '\n';
-    else cout << ans << '\n';
+    if (ans == N + 1) cout << 0 << endl;
+    else cout << ans << endl;
   }
   return 0;
 }
