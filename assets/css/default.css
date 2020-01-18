@@ -1,13 +1,15 @@
 body {
   font-family: 'Noto Serif JP', serif;
-  background-color: #F2F4F7;
+  background-color: white;
   line-height: 1.8em;
 }
 pre, code {
-  font-family: 'Source Code Pro', monospace;
-  line-height: 1.4em;
+  font-family: "Roboto Mono for Powerline", 'Source Code Pro', monospace;
+  line-height: 1.6em;
+  padding: 0.3em;
 }
 h1 {
+  margin-block-start: 0;
   padding-bottom: 0.3em;
   border-bottom: solid 3px black;
   line-height: 1.2em;

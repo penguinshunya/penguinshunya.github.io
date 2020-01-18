@@ -6,7 +6,7 @@
     <title>{{ page.site }} {{ page.prefix }} - {{ page.problem_name }}</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP|Source+Code+Pro&display=swap" rel="stylesheet">
     <link href="/assets/css/default.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <link href="/assets/css/highlight.css" rel="stylesheet">
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
@@ -22,14 +22,7 @@
       <a href="/">トップ</a>
       <h1>{{ page.site }} {{ page.prefix }} - {{ page.problem_name }} {{ page.level }}</h1>
       <a target="_blank" href="{{ page.problem_url }}">{{ page.prefix }} - {{ page.problem_name }}</a>
-      {{ page.content }}
+      {{ content }}
     </div>
-    <script src="https://utteranc.es/client.js"
-            repo="penguinshunya/penguinshunya.github.io"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-    </script>
   </body>
 </html>

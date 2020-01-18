@@ -1,3 +1,5 @@
-_site
-.vscode
+_site/
+.jekyll-cache/
+.vscode/
 .DS_Store
+a.out
