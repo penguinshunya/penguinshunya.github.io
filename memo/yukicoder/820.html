@@ -1,78 +1,12 @@
-<!DOCTYPE html>
-<html lang="ja">
-<Head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title></title>
-<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [['$','$'], ['\$','\$']],
-      processEscapes: true
-    }
-  });
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-<style>
-li.L0, li.L1, li.L2, li.L3,
-li.L5, li.L6, li.L7, li.L8 {
-  list-style-type: decimal !important;
-}
-.prettyprint {
-  overflow: scroll;
-  background-color: white;
-}
-.linenums {
-  margin-left: 10px;
-}
-</style>
-<style>
-body {
-  font-family: 'Noto Serif JP', serif;
-  background-color: #F2F4F7;
-}
-pre, code {
-  font-family: 'Source Code Pro', monospace;
-}
-h1 {
-  padding-bottom: 3px;
-  border-bottom: solid 3px black;
-}
-.block {
-  padding: 1em;
-  border: 1px solid black;
-  border-radius: 1em;
-}
-.wrapping {
-  overflow: scroll;
-}
-#container {
-  margin: 0 auto;
-  max-width: 840px;
-}
-#table {
-  border-collapse: collapse;
-  margin: 0 auto;
-}
-#table th {
-  padding: 0 1em;
-}
-#table td {
-  text-align: center;
-}
-#table .same {
-  background-color: #dcd6d9;
-}
-</style>
-</Head>
-<body>
-<div id="container">
-<h1>yukicoder No.820 Power of Two（★1）</h1>
-<a target="_blank" href="https://yukicoder.me/problems/no/820">https://yukicoder.me/problems/no/820</a>
-<p>$x$は$2^K$の倍数であるため、$x = c \times 2^K$と表せます。ということで、$1 \le x \le 2^N$という条件式は、$1 \le c \times 2^K \le 2^N$と変形できます。そして、$x$の個数は$c$の最大値に等しいです。したがって、$x$の個数は$\lfloor 2^N \div 2^K \rfloor$です。計算量は$O(N + K)$です。繰り返し二乗法を使うことで、計算量を$O(\log N + \log K)$まで落とせます。</p>
+---
+layout: problem
+site: yukicoder
+prefix: No.820
+problem_name: Power of Two
+level: ★
+problem_url: https://yukicoder.me/problems/no/820
+---
+<p>$x$は$2^K$の倍数であるため、$x = c \times 2^K$と表せます。ということで、$1 \le x \le 2^N$という条件式は、$1 \le c \times 2^K \le 2^N$と変形できます。そして、$x$の個数は$c$の最大値に等しいです。したがって、$x$の個数は$\lfloor 2^N \div 2^K \rfloor$です。計算量は$O(N + K)$です。繰り返し二乗法を使うことで、計算量を$O(\log N + \log K)$まで減らすこともできます。</p>
 <h2>提出コード</h2>
 <pre class="prettyprint linenums:1 lang-cpp">
 #include &lt;bits/stdc++.h&gt;
@@ -93,6 +27,3 @@ int main() {
   return 0;
 }
 </pre>
-</div>
-</body>
-</html>
