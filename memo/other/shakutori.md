@@ -9,10 +9,11 @@ title: しゃくとり法 - ぺんぎんノート
 </ol>
 <p>たとえば、1.の問題には「ある数列の連続する部分列の和が$K$以下となるもののうち、最長の長さはいくつか」などがあり、2.の問題には「ある数列の連続する部分列の和が$K$以上となるもののうち、最も短い部分列の長さはいくつか」などがあります。</p>
 <p>以下のテンプレートは、1.の問題に使えるものです。</p>
-<pre class="prettyprint linenums:1 lang-cpp">
+
+```cpp
 T acc = e;  // 蓄積値。eは単位元のようなもの
-for (int l = 0, r = 0; l &lt; N; ) {
-  while (r &lt; N && /* accを更新しても条件を満たすか */) {
+for (int l = 0, r = 0; l < N; ) {
+  while (r < N && /* accを更新しても条件を満たすか */) {
     /* accを更新してからr++ */
   }
 
@@ -23,13 +24,15 @@ for (int l = 0, r = 0; l &lt; N; ) {
   // この行は思考停止しながら書く
   if (l >= r) r = l, acc = e;
 }
-</pre>
-<p>実装の方針としては、半開区間で実装しています。たとえば、上のテンプレートの7行目では、<code>acc</code>は区間$[l, r)$の値を保持しています。条件を満たす部分列の長さは$r-l$で取得できます。</p>
+```
+
+<p>実装の方針としては、半開区間で実装しています。たとえば、上のテンプレートの7行目では、`acc`は区間$[l, r)$の値を保持しています。条件を満たす部分列の長さは$r-l$で取得できます。</p>
 <p>続けて2.のテンプレートも載せます。</p>
-<pre class="prettyprint linenums:1 lang-cpp">
+
+```cpp
 T acc = e;  // 蓄積値。eは単位元のようなもの
-for (int l = 0, r = 0; l &lt; N; ) {
-  while (r &lt; N && /* accを更新しても条件を満たさないか */) {
+for (int l = 0, r = 0; l < N; ) {
+  while (r < N && /* accを更新しても条件を満たさないか */) {
     /* accを更新してからr++ */
   }
   /* 条件を満たさない状態で最後までたどり着いた */
@@ -42,10 +45,12 @@ for (int l = 0, r = 0; l &lt; N; ) {
   // この行は思考停止しながら書く
   if (l >= r) r = l, acc = e;
 }
-</pre>
-<p>1.のテンプレートに<code>if (r == N) break;</code>が加わっただけです。あとは1.と同じ感覚で実装できます。ただ、ひとつ気をつけなければいけない点があり、9行目の<code>acc</code>は「ぎりぎり条件を満たさない値」を持っているという点です。ということで、条件を満たす値を作るために、<code>acc</code>と<code>r</code>を使う必要があります。</p>
+```
 
-<h2>実際に出題された問題と、その実装</h2>
+<p>1.のテンプレートに`if (r == N) break;`が加わっただけです。あとは1.と同じ感覚で実装できます。ただ、ひとつ気をつけなければいけない点があり、9行目の`acc`は「ぎりぎり条件を満たさない値」を持っているという点です。ということで、条件を満たす値を作るために、`acc`と`r`を使う必要があります。</p>
+
+## 実際に出題された問題と、その実装
+
 <style>
 th, td { padding: 0.3em 0.5em; }
 td { vertical-align: top; }
@@ -54,67 +59,73 @@ td { vertical-align: top; }
   <tr style="text-align: left;"><th>問題</th><th>実装</th></tr>
   <tr>
     <td><a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_C&lang=jp">AOJ Course The Number of Windows</a></td>
-    <td><a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=3612455#1">ソースコードへのリンク</a>。<code>acc</code>は整数型、<code>e</code>は$0$とします。</td>
+    <td><a target="_blank" href="http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=3612455#1">ソースコードへのリンク</a>。`acc`は整数型、`e`は$0$とします。</td>
   </tr>
   <tr>
     <td><a target="_blank" href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a></td><td>POJでは実装を公開できないので、ページ下に掲載します。</td>
   </tr>
   <tr>
     <td><a target="_blank" href="https://atcoder.jp/contests/abc032/tasks/abc032_c">AtCoder ABC032 C - 列</a></td>
-    <td><a target="_blank" href="https://atcoder.jp/contests/abc032/submissions/5704111">ソースコードへのリンク</a>。<code>acc</code>は整数型、<code>e</code>は$1$とします。</td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/abc032/submissions/5704111">ソースコードへのリンク</a>。`acc`は整数型、`e`は$1$とします。</td>
   </tr>
   <tr>
     <td><a target="_blank" href="https://atcoder.jp/contests/abc038/tasks/abc038_c">AtCoder ABC038 C - 単調増加</a></td>
-    <td><a target="_blank" href="https://atcoder.jp/contests/abc038/submissions/5704052">ソースコードへのリンク</a>。<code>acc</code>は直前の数字、<code>e</code>は$0$とします。</td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/abc038/submissions/5704052">ソースコードへのリンク</a>。`acc`は直前の数字、`e`は$0$とします。</td>
   </tr>
   <tr>
     <td><a target="_blank" href="https://atcoder.jp/contests/arc022/tasks/arc022_2">AtCoder ARC022 B - 細長いお菓子</a></td>
-    <td><a target="_blank" href="https://atcoder.jp/contests/arc022/submissions/5705708">ソースコードへのリンク</a>。<code>acc</code>は<code>set</code>、<code>e</code>は<code>{}</code>とします。</td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/arc022/submissions/5705708">ソースコードへのリンク</a>。`acc`は`set`、`e`は`{}`とします。</td>
   </tr>
   <tr>
     <td><a target="_blank" href="https://atcoder.jp/contests/abc098/tasks/arc098_b">AtCoder ABC098 D - Xor Sum 2</a></td>
-    <td><a target="_blank" href="https://atcoder.jp/contests/abc098/submissions/5707106">ソースコードへのリンク</a>。<code>acc</code>が複数あるパターンです。</td>
+    <td><a target="_blank" href="https://atcoder.jp/contests/abc098/submissions/5707106">ソースコードへのリンク</a>。`acc`が複数あるパターンです。</td>
   </tr>
 </table>
 <p><a target="_blank" href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a>以外の問題はすべて、1.のテンプレートに当てはめることができます。</p>
-<pre class="prettyprint linenums:1 lang-cpp">
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
 
-#define rep(i, n) for (int i = 0; i &lt; int(n); i++)
+```cpp
+#include <iostream>
+#include <vector>
+
+#define rep(i, n) for (int i = 0; i < int(n); i++)
 
 using namespace std;
 
 typedef long long i64;
-typedef vector&lt;i64&gt; vi64;
+typedef vector<i64> vi64;
 
 int main() {
-  int Q; cin &gt;&gt; Q;
+  int Q; cin >> Q;
   rep(i, Q) {
-    int N, S; cin &gt;&gt; N &gt;&gt; S;
-    vi64 a(N); rep(i, N) cin &gt;&gt; a[i];
+    int N, S; cin >> N >> S;
+    vi64 a(N); rep(i, N) cin >> a[i];
     int ans = N + 1;
     i64 sum = 0;
-    for (int l = 0, r = 0; l &lt; N; ) {
-      while (r &lt; N && sum + a[r] &lt; S) {
+    for (int l = 0, r = 0; l < N; ) {
+      while (r < N && sum + a[r] < S) {
         sum += a[r++];
       }
       if (r == N) break;
       ans = min(ans, r - l + 1);
       sum -= a[l++];
-      if (l &gt;= r) r = l, sum = 0;
+      if (l >= r) r = l, sum = 0;
     }
-    if (ans == N + 1) cout &lt;&lt; 0 &lt;&lt; '\n';
-    else cout &lt;&lt; ans &lt;&lt; '\n';
+    if (ans == N + 1) cout << 0 << '\n';
+    else cout << ans << '\n';
   }
   return 0;
 }
-</pre>
-<p>こちらが<a target="_blank" href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a>の実装です。<code>acc</code>は整数型、<code>e</code>は$0$です。2.の問題なので、<code>if (r == N) break;</code>という行があります。条件を満たす数列の長さは$r - l + 1$です。$r - l$でない理由は、$r - l$は「ぎりぎり条件を満たさない数列の長さ」だからです。$1$を足すことで、条件を満たす数列の長さになります。</p>
-<h2>まとめ</h2>
+```
+
+<p>こちらが<a target="_blank" href="http://poj.org/problem?id=3061">POJ 3061 Subsequence</a>の実装です。`acc`は整数型、`e`は$0$です。2.の問題なので、`if (r == N) break;`という行があります。条件を満たす数列の長さは$r - l + 1$です。$r - l$でない理由は、$r - l$は「ぎりぎり条件を満たさない数列の長さ」だからです。$1$を足すことで、条件を満たす数列の長さになります。</p>
+
+## まとめ
+
 <ul>
   <li>範囲が広がるほど条件を満たしにくくなる → 1.のテンプレート</li>
   <li>範囲が広がるほど条件を満たしやすくなる → 2.のテンプレート</li>
 </ul>
-<h2>参考</h2>
+
+## 参考
+
 <a target="_blank" href="https://qiita.com/drken/items/ecd1a472d3a0e7db8dce">しゃくとり法 (尺取り法) の解説と、それを用いる問題のまとめ</a>

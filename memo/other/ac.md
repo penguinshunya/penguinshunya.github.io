@@ -18,30 +18,7 @@ h2 {
   border-left: solid 5px #7db4e6;/*左線*/
 }
 </style>
-ACした問題の数：<span id="count"></span>
-<script>
-window.addEventListener("DOMContentLoaded", () => {
-  let message = "";
 
-  let c = 0;
-  c += document.getElementById("ac").querySelectorAll("li").length;
-  c += document.getElementById("fuan").querySelectorAll("li").length;
-  message += c;
-
-  {
-    const format = d => {
-      return `${ d.getFullYear() } 年 ${ d.getMonth() + 1 } 月 ${ d.getDate() } 日`;
-    };
-
-    const fst = new Date(2019, 5, 20);
-    const now = new Date();
-    const diff = Math.floor((now - fst) / 86400000) + 1;
-    message += "（" + format(fst) + " 〜 " + format(now) + ` の ${ diff } 日間）`;
-  }
-
-  document.getElementById("count").textContent = message;
-});
-</script>
 <h2>ACしたけど不安の残る問題</h2>
 <ul id="fuan">
   <li><a target="_blank" href="https://atcoder.jp/contests/abc043/tasks/arc059_b">
