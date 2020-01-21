@@ -3,3 +3,4 @@ _site/
 .vscode/
 .DS_Store
 a.out
+*.o
