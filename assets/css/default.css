@@ -1,11 +1,11 @@
 body {
-  font-family: "Roboto Mono for Powerline", 'Noto Serif JP', serif;
+  font-family: 'Sawarabi Mincho', sans-serif;
   background-color: white;
   line-height: 1.8em;
   font-size: 1.2em;
 }
 pre, code {
-  font-family: "Roboto Mono for Powerline", 'Source Code Pro', monospace;
+  font-family: 'Source Code Pro', monospace;
   line-height: 1.6em;
 }
 pre {
@@ -21,6 +21,9 @@ h1 {
 a {
   color: #0000D0;
   text-decoration-line: none;
+}
+a:hover {
+  text-decoration-line: underline;
 }
 details {
   cursor: pointer;
