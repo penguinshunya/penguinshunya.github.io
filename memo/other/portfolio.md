@@ -8,4 +8,5 @@ title: ポートフォリオ一覧
 <p>Chromeブラウザに高度な検索機能を追加する拡張機能です。2020年08月08日現在、126人の方に使って頂いてます。検索途中であってもユーザの操作性を損なわないように設計しています。言語はHTML/SASS/TypeScriptを使用しています。</p>
 <h2>オセロ</h2>
 <a href="/programs/othello/">掲載サイト</a>
-<a href="">ソースコード</a>
+<a href="https://github.com/penguinshunya/penguinshunya.github.io/tree/master/programs/othello">ソースコード</a>
+<p></p>

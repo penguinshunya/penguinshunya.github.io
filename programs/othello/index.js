@@ -14,14 +14,14 @@ let COMPUTER = -1;
 const WIDTH = 64;
 
 (() => {
-  let othello = new Othello(N, BLANK, BLACK, WHITE);
-
   const cvs = document.getElementById("canvas");
   const ctx = cvs.getContext("2d");
   const message = document.getElementById("message");
 
   cvs.width = WIDTH * N;
   cvs.height = WIDTH * N;
+
+  let othello = new Othello(N, BLANK, BLACK, WHITE);
 
   show(ctx, othello, WIDTH);
 
