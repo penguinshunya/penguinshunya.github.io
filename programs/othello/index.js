@@ -9,7 +9,7 @@ const BLANK = 0;
 const BLACK = 1;
 const WHITE = 2;
 
-let COMPUTER = -1;
+let COMPUTER = 2;
 
 const WIDTH = 64;
 
@@ -41,7 +41,7 @@ const WIDTH = 64;
     if (othello.can(turn)) {
       return;
     }
-    message.textContent = `${turn == BLACK ? "black" : "white"} skip.`;
+    message.textContent = `${turn == BLACK ? "黒" : "白"}はスキップしました`;
     turn = othello.enemy(turn);
     if (othello.can(turn)) {
       return;
@@ -49,16 +49,21 @@ const WIDTH = 64;
     const black = othello.count(BLACK);
     const white = othello.count(WHITE);
     if (black > white) {
-      message.textContent = `${black} vs ${white} black win.`;
+      message.textContent = `${black} vs ${white} 黒の勝ち`;
     } else if (black < white) {
-      message.textContent = `${black} vs ${white} white win.`;
+      message.textContent = `${black} vs ${white} 白の勝ち`;
     } else {
-      message.textContent = `${black} vs ${white} draw.`;
+      message.textContent = `${black} vs ${white} 引き分け`;
     }
+    message.textContent += " 盤面をクリックして次のゲームへ";
     state = 1;
   };
 
   cvs.addEventListener("click", e => {
+    if (state == 2) {
+      init();
+      return;
+    }
     if (state != 0) {
       return;
     }
@@ -74,6 +79,7 @@ const WIDTH = 64;
     postProcessing();
   });
 
+  // event loop
   window.setInterval(() => {
     if (state == 0) {
       if (COMPUTER != -1 && turn != COMPUTER) {
@@ -85,7 +91,6 @@ const WIDTH = 64;
     }
     if (state == 1) {
       state = 2;
-      window.setTimeout(init, 3000);
     }
   }, 100);
 
