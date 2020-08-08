@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>オセロ</title>
+  </head>
+  <body>
+    <div style="display:flex;">
+      <canvas id="canvas" style="background-color: green;"></canvas>
+      <div id="option">
+        <label><input type="radio" name="vs" value="-1" checked="checked" >computer vs computer</label><br>
+        <label><input type="radio" name="vs" value="0">player vs player</label><br>
+        <label><input type="radio" name="vs" value="1">computer vs player</label><br>
+        <label><input type="radio" name="vs" value="2">player vs computer</label><br>
+      </div>
+    </div>
+    <div id="message"></div>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
