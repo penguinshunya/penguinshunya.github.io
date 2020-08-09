@@ -10,3 +10,6 @@ title: ポートフォリオ一覧
 <a href="/programs/othello/">掲載サイト</a>
 <a href="https://github.com/penguinshunya/penguinshunya.github.io/tree/master/programs/othello">ソースコード</a>
 <p></p>
+<h2>Qiita</h2>
+<a href="https://qiita.com/penguinshunya">掲載サイト</a>
+<p>日々学んだことを記事にしています。</p>

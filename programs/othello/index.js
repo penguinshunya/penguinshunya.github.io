@@ -5,7 +5,7 @@ import { show } from "./ui.js";
 import { routine } from "./computer.js";
 
 const N = 8;
-const BLANK = 0;
+const EMPTY = 0;
 const BLACK = 1;
 const WHITE = 2;
 
@@ -21,7 +21,7 @@ const WIDTH = 64;
   cvs.width = WIDTH * N;
   cvs.height = WIDTH * N;
 
-  let othello = new Othello(N, BLANK, BLACK, WHITE);
+  let othello = new Othello(N, EMPTY, BLACK, WHITE);
 
   show(ctx, othello, WIDTH);
 

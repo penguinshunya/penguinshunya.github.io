@@ -1,10 +1,10 @@
 import { deepCopy } from "./function.js";
 
 export class Othello {
-  constructor(n, blank = 0, black = 1, white = 2) {
+  constructor(n, empty = 0, black = 1, white = 2) {
     console.assert(n % 2 == 0);
     this.n = n;
-    this.blank = blank;
+    this.empty = empty;
     this.black = black;
     this.white = white;
     this.init();
@@ -13,7 +13,7 @@ export class Othello {
     const n = this.n;
     let board = new Array(n);
     for (let x = 0; x < n; x++) {
-      board[x] = new Array(n).fill(this.blank);
+      board[x] = new Array(n).fill(this.empty);
     }
     board[n / 2 - 1][n / 2] = this.black;
     board[n / 2][n / 2 - 1] = this.black;
@@ -27,7 +27,7 @@ export class Othello {
   put(x, y, turn, board = this.board) {
     const dx = [1, 0, -1, 0, 1, 1, -1, -1];
     const dy = [0, 1, 0, -1, 1, -1, 1, -1];
-    if (board[x][y] != this.blank) {
+    if (board[x][y] != this.empty) {
       return false;
     }
     let can = false;
@@ -47,7 +47,7 @@ export class Othello {
         if (nx < 0 || nx >= this.n || ny < 0 || ny >= this.n) {
           break;
         }
-        if (board[nx][ny] == this.blank) {
+        if (board[nx][ny] == this.empty) {
           break;
         }
         if (board[nx][ny] == turn) {
