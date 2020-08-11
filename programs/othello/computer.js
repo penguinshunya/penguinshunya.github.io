@@ -47,7 +47,6 @@ export function routine(othello, turn) {
   for (let i = 0; i < len; i++) {
     arr[i] = 1 << i;
   }
-  console.log(arr);
   const max = arr[len - 1];
   const x = Math.floor(Math.random() * max);
   for (let i = 0; i < len; i++) {
