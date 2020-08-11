@@ -37,6 +37,7 @@ const WIDTH = 64;
   };
 
   const postProcessing = () => {
+    message.textContent = "";
     turn = othello.enemy(turn);
     if (othello.can(turn)) {
       return;
