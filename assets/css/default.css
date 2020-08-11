@@ -5,11 +5,17 @@ body {
   font-size: 1.2em;
 }
 pre, code {
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'Ricty Diminished', monospace;
   line-height: 1.6em;
 }
 pre {
   padding: 0.3em;
+}
+code {
+  margin: 0 0.2em;
+  padding: 0 0.3em;
+  border-radius: 0.15em;
+  background-color: #f6f6f6;
 }
 h1 {
   margin-block-start: 0.3em;
