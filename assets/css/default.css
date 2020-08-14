@@ -1,11 +1,12 @@
 body {
-  font-family: 'Sawarabi Mincho', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: white;
-  line-height: 1.8em;
-  font-size: 1.2em;
+  line-height: 1.6em;
+  font-size: 1.05em;
+  color: #333;
 }
 pre, code {
-  font-family: 'Ricty Diminished', monospace;
+  font-family: 'Source Code Pro', monospace;
   line-height: 1.6em;
 }
 pre {
@@ -15,11 +16,12 @@ code {
   margin: 0;
   padding: 0 0.4em;
   border-radius: 0.15em;
-  background-color: #f6f6f6;
+  background-color: #f2f2f2;
+  color: #777;
 }
 h1 {
   margin-block-start: 0.3em;
-  margin-block-end: 0.6em;
+  margin-block-end: 1.5em;
   padding-bottom: 0.3em;
   border-bottom: solid 3px black;
   line-height: 1.2em;
